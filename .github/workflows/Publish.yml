@@ -27,7 +27,7 @@ jobs:
             github.rest.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: 'refs/tags/<${{ VER }}>',
+              ref: 'refs/tags/<${{ env.VER }}>',
               sha: context.sha
             })
           
