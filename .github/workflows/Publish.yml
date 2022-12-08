@@ -15,5 +15,9 @@ jobs:
 ##    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-    - run: sed -n "s/version//p" VERSION.ini
+    - run: |
+        pwd
+        ls
+        sed -n "s/version//p" VERSION.ini
+        
       
