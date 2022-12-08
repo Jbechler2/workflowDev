@@ -1,0 +1,16 @@
+name: .NET Core Desktop
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches: [ "main" ]
+  workflow_dispatch:
+  
+jobs:
+
+  if_merged:
+    if: github.events.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo 1. Create Tag w/ new version # 2. Obtain binaries from previous workflow 3. Attach binaries to new Tag/release.
