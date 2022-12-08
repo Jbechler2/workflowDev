@@ -1,0 +1,45 @@
+name: .NET Core Desktop
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+  
+jobs:
+
+  build:
+
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    # Install the .NET Core workload
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    - name: Build
+      run: |
+        dotnet build --configuration Release
+    - name: Run
+      run: |
+        dotnet run >> temp.txt
+        cat temp.txt
+    - name: Test
+      run: |
+        grep "Hello, Test World!" temp.txt
+        if [[ "$?" == 1 ]]; then exit 1; fi
+    - name: Archive
+      uses: actions/upload-artifact@v3
+      with:
+        name: BuildFiles
+        path: |
+          /home/runner/work/workflowDev/workflowDev/bin/Release/net6.0/
