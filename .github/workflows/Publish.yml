@@ -20,6 +20,6 @@ jobs:
         run: |
           pwd
           ls
-          sed -n "s/version//p" VERSION.ini
+          sed -n "s/version=//p" VERSION.ini
         
       
