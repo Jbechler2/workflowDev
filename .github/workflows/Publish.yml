@@ -10,7 +10,7 @@ on:
 jobs:
 
   if_merged:
-    if: github.events.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - run: echo 1. Create Tag w/ new version # 2. Obtain binaries from previous workflow 3. Attach binaries to new Tag/release.
