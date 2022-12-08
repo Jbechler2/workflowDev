@@ -37,7 +37,7 @@ jobs:
         cat temp.txt
     - name: Test
       run: |
-        grep "Hello, World!" temp.txt
+        grep "Hello, Test World!" temp.txt
         if [[ "$?" == 1 ]]; then exit 1; fi
     - name: Archive
       uses: actions/upload-artifact@v3
