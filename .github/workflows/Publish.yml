@@ -22,6 +22,6 @@ jobs:
           ls
           VER=$(sed -n "s/version=//p" VERSION.ini)
           echo "VERSION=$VER" >> $GITHUB_ENV
-          echo ${{ env.VERSION }}
+          echo "$VERSION"
         
       
