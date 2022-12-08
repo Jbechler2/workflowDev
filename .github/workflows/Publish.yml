@@ -19,7 +19,7 @@ jobs:
       - name: Get Version
         run: |
           VER=$(sed -n "s/version=//p" VERSION.ini)
-          echo "$VER"
+          echo "VER=${VER}" >> $GITHUB_ENV
       - name: Create Tag
         uses: actions/github-script@v5
         with:
