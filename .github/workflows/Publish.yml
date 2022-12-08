@@ -13,4 +13,7 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-    - run: echo 1. Create Tag w/ new version num 2. Obtain binaries from previous workflow 3. Attach binaries to new Tag/release.
+    - run: |  
+        echo 1. Create Tag w/ new version num 2. Obtain binaries from previous workflow 3. Attach binaries to new Tag/release.
+        sed -n "s/version//p" VERSION.ini
+      
