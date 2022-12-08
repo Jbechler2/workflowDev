@@ -18,10 +18,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Get Version
         run: |
-          pwd
-          ls
           VER=$(sed -n "s/version=//p" VERSION.ini)
           echo "VERSION=$VER" >> $GITHUB_ENV
-          echo "$GITHUB_ENV"
+          echo "$GITHUB_CONTEXT"
         
       
