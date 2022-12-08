@@ -20,7 +20,6 @@ jobs:
         run: |
           VER=$(sed -n "s/version=//p" VERSION.ini)
           echo "VER=${VER}" >> $GITHUB_ENV
-          echo "test"
       - name: Create Tag
         uses: actions/github-script@v6
         with:
