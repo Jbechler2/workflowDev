@@ -20,7 +20,7 @@ jobs:
         run: |
           pwd
           ls
-          VER = $(sed -n "s/version=//p" VERSION.ini)
+          VER=$(sed -n "s/version=//p" VERSION.ini)
           echo "VERSION=$VER" >> $GITHUB_ENV
         
       
