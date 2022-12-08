@@ -34,5 +34,5 @@ jobs:
         cat temp.txt
     - name: Test
       run: |
-        grep "Hello, Test World!" temp.txt
+        grep "Hello, World!" temp.txt
         if [[ "$?" == 1 ]]; then exit 1; fi
