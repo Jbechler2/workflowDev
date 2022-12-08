@@ -20,5 +20,16 @@ jobs:
         run: |
           VER=$(sed -n "s/version=//p" VERSION.ini)
           echo "$VER"
+      - name: Create Tag
+        uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/<$VER>',
+              sha: context.sha
+            })
+          
         
       
