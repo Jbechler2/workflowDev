@@ -19,7 +19,6 @@ jobs:
       - name: Get Version
         run: |
           VER=$(sed -n "s/version=//p" VERSION.ini)
-          echo "VERSION=$VER" >> $GITHUB_ENV
-          echo "$GITHUB_CONTEXT"
+          echo "$VER"
         
       
