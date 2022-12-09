@@ -49,7 +49,7 @@ jobs:
               core.setFailed(error.message);
             }
       - name: Output Release Info
-        run: echo "${{ steps.create_release.outputs }}"
+        run: echo "${{ steps.create_release.outputs.upload_url }}"
       - name: Download Artifact
         uses: dawidd6/action-download-artifact@v2
         with:
