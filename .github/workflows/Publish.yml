@@ -36,7 +36,7 @@ jobs:
         with:
           script: |
             try {
-              await github.rest.repos.createRelease({
+              github.rest.repos.createRelease({
                 draft: false,
                 generate_release_notes: false,
                 name: "${{ env.VER }}",
