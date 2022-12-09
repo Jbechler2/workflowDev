@@ -32,45 +32,25 @@ jobs:
             })
       - name: Create Release
         id: create_release
-        uses: actions/github-script@v6
+        uses: ncipollo/release-action@v1
         with:
-          script: |
-            try {
-              github.rest.repos.createRelease({
-                draft: false,
-                generate_release_notes: false,
-                name: "${{ env.VER }}",
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                tag_name: "v${{ env.VER }}",
-                body: "Example release notes"
-              });
-            } catch (error){
-              core.setFailed(error.message);
-            }
-      - name: Output Release Info
-        run: echo "${{ steps.create_release.outputs.upload_url }}"
-      - name: Download Artifact
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: dotnet-desktop.yml
-          name: BuildFiles
-          search_artifacts: true
-          if_no_artifact_found: fail
-      - name: Attach pdb
-        uses: shogo82148/actions-upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: BuildFiles/ConsoleApp1.pdb
-      - name: Attach json
-        uses: shogo82148/actions-upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: BuildFiles/ConsoleApp1.deps.json
-      - name: Attach dll
-        uses: shogo82148/actions-upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: BuildFiles/ConsoleApp1.dll
-
-      
+          artifacts: "BuildFiles/ConsoleApp1.pdb,BuildFiles/ConsoleApp1.deps.json,BuildFiles/ConsoleApp1.dll"
+          name: "v${{ env.VER }}"
+##      - name: Create Release
+##        id: create_release
+##        uses: actions/github-script@v6
+##        with:
+##          script: |
+##            try {
+##              github.rest.repos.createRelease({
+##                draft: false,
+##                generate_release_notes: false,
+##                name: "${{ env.VER }}",
+##                owner: context.repo.owner,
+##                repo: context.repo.repo,
+##                tag_name: "v${{ env.VER }}",
+##                body: "Example release notes"
+##              });
+##            } catch (error){
+##              core.setFailed(error.message);
+##            }
