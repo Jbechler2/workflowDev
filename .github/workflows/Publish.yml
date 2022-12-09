@@ -34,14 +34,19 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            github.rest.repos.createRelease({
-              draft: false,
-              generate_release_notes: false,
-              name: ${{ env.VER }},
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              tag_name: v${{ env.VER }}
-              body: "Example release notes"
-            })
+            try {
+              await github.rest.repos.createRelease({
+                draft: false,
+                generate_release_notes: false,
+                name: ${{ env.VER }},
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                tag_name: v${{ env.VER }}
+                body: "Example release notes"
+              });
+            } catch (error){
+              core.setFailed(error.message);
+            }
+           
         
       
