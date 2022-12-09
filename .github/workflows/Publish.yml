@@ -42,8 +42,8 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "ConsoleApp1.pdb,ConsoleApp1.deps.json,ConsoleApp1.dll"
-          name: "v${{ env.VER }}"
-          tag: "${{ env.VER }}"
+          name: "${{ env.VER }}"
+          tag: "v${{ env.VER }}"
 ##      - name: Create Release
 ##        id: create_release
 ##        uses: actions/github-script@v6
