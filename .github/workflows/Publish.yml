@@ -47,6 +47,10 @@ jobs:
             } catch (error){
               core.setFailed(error.message);
             }
-           
+      - name: Download Artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          run_id: 3652154751
+          if_no_artifact_found: fail
         
       
