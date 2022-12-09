@@ -31,6 +31,7 @@ jobs:
               sha: context.sha
             })
       - name: Create Release
+        id: create_release
         uses: actions/github-script@v6
         with:
           script: |
@@ -50,7 +51,24 @@ jobs:
       - name: Download Artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          run_id: 3652154751
+          workflow: dotnet-desktop.yml
+          name: BuildFiles
+          search_artifacts: true
           if_no_artifact_found: fail
-        
+      - name: Attach pdb
+        uses: shogo82148/actions-upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: BuildFiles/ConsoleApp1.pdb
+      - name: Attach json
+        uses: shogo82148/actions-upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: BuildFiles/ConsoleApp1.deps.json
+      - name: Attach dll
+        uses: shogo82148/actions-upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: BuildFiles/ConsoleApp1.dll
+
       
