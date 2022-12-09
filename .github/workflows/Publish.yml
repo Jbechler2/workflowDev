@@ -41,7 +41,7 @@ jobs:
         id: create_release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "~/BuildFiles/ConsoleApp1.pdb,~/BuildFiles/ConsoleApp1.deps.json,~/BuildFiles/ConsoleApp1.dll"
+          artifacts: "ConsoleApp1.pdb,ConsoleApp1.deps.json,ConsoleApp1.dll"
           name: "v${{ env.VER }}"
           tag: "${{ env.VER }}"
 ##      - name: Create Release
