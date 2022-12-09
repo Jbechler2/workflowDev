@@ -30,6 +30,13 @@ jobs:
               ref: 'refs/tags/v${{ env.VER }}',
               sha: context.sha
             })
+      - name: Download Artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: dotnet-desktop.yml
+          name: BuildFiles
+          search_artifacts: true
+          if_no_artifact_found: fail
       - name: Create Release
         id: create_release
         uses: ncipollo/release-action@v1
