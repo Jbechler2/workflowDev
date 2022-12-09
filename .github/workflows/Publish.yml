@@ -41,8 +41,8 @@ jobs:
                 name: "${{ env.VER }}",
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                tag_name: "v${{ env.VER }}"
-                body: Example release notes
+                tag_name: "v${{ env.VER }}",
+                body: "Example release notes"
               });
             } catch (error){
               core.setFailed(error.message);
