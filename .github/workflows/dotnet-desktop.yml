@@ -31,6 +31,8 @@ jobs:
         dotnet build --configuration Release
     - name: Run
       run: |
+        ls
+        ls ~/bin/
         dotnet ~/bin/Release/net6.0/ConsoleApp1.dll >> temp.txt
         cat temp.txt
     - name: Get Version
