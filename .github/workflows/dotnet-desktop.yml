@@ -32,8 +32,8 @@ jobs:
         echo "VER=${VER}" >> $GITHUB_ENV
     - name: Update Version Number and Build Date
       run: |
-        sed "s/{{ SDKVERSION }}/${{ env.VER }}/" Program.cs
-        sed "s/{{ SDKBUILDDATE }}/$(date '+%Y-%m-%d')/" Program.cs
+        sed "s/{{ SDKVERSION }}/${{ env.VER }}/g" Program.cs
+        sed "s/{{ SDKBUILDDATE }}/$(date '+%Y-%m-%d')/g" Program.cs
     - name: Build
       run: |
         dotnet build --configuration Release
