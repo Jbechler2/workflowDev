@@ -40,7 +40,7 @@ jobs:
     - name: Update Version Number and Build Date
       run: |
         sed "s/{{ SDKVERSION }}/${{ env.VER }}/" Program.cs
-        sed "s/{{ SDKBUILDDATE }}/$(date '+%Y-%m-%d')" Program.cs
+        sed "s/{{ SDKBUILDDATE }}/$(date '+%Y-%m-%d')/" Program.cs
     - name: Test
       run: |
         grep "Hello, Test World!" temp.txt
