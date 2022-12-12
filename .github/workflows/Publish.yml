@@ -31,7 +31,7 @@ jobs:
               sha: context.sha
             })
       - name: Download Artifact
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@e6e25ac3a2b93187502a8be1ef9e9603afc34925
         with:
           workflow: dotnet-desktop.yml
           name: BuildFiles
