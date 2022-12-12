@@ -44,6 +44,7 @@ jobs:
           artifacts: "ConsoleApp1.pdb,ConsoleApp1.deps.json,ConsoleApp1.dll"
           name: "${{ env.VER }}"
           tag: "v${{ env.VER }}"
+          bodyFile: "ReleaseNotes.md"
 ##      - name: Create Release
 ##        id: create_release
 ##        uses: actions/github-script@v6
