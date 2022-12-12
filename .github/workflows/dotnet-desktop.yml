@@ -31,8 +31,7 @@ jobs:
         dotnet build --configuration Release
     - name: Run
       run: |
-        pwd
-        dotnet ~/bin/Release/net6.0/ConsoleApp1.dll >> temp.txt
+        dotnet /home/runner/work/workflowDev/workflowDev/bin/Release/net6.0/ConsoleApp1.dll >> temp.txt
         cat temp.txt
     - name: Get Version
       run: |
