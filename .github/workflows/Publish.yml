@@ -39,7 +39,7 @@ jobs:
           if_no_artifact_found: fail
       - name: Create Release
         id: create_release
-        uses: ncipollo/release-action@v1
+        uses: ncipollo/release-action@a2e71bdd4e7dab70ca26a852f29600c98b33153e
         with:
           artifacts: "ConsoleApp1.pdb,ConsoleApp1.deps.json,ConsoleApp1.dll"
           name: "${{ env.VER }}"
