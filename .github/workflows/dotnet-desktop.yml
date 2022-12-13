@@ -48,6 +48,6 @@ jobs:
     - name: Archive
       uses: actions/upload-artifact@v3
       with:
-        name: BuildFiles
+        name: DotNetTracker-${{ env.VER }}
         path: |
           /home/runner/work/workflowDev/workflowDev/bin/Release/net6.0/
