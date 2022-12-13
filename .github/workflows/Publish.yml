@@ -32,7 +32,7 @@ jobs:
         uses: dawidd6/action-download-artifact@e6e25ac3a2b93187502a8be1ef9e9603afc34925
         with:
           workflow: dotnet-desktop.yml
-          name: BuildFiles
+          name: DotNetTracker-${{ env.VER }}
           search_artifacts: true
           if_no_artifact_found: fail
       - name: Create Release
